@@ -1,4 +1,5 @@
 #lang racket
+(require rackunit)
 
 (define (square x) 
   (* x x))
@@ -20,3 +21,5 @@
             
 (define (sqrt-iter guess x)
   (iter (improve guess x) x guess))
+
+(check-equal? (real->decimal-string (sqrt-iter 1.0 (square 1000))) "1000.00")
